@@ -378,7 +378,21 @@ let playing = false;
 let startedAt = 0;
 let elapsedBeforePause = 0;
 let timer = null;
-let slideDuration = 6500;
+let baseSlideDuration = 6500;
+const fastFromIndex = 9;
+const fastSlideFactor = 0.78;
+
+function durationForSlide(index){
+    return baseSlideDuration * (index >= fastFromIndex ? fastSlideFactor : 1);
+}
+
+function totalDeckDuration(){
+    return slides.reduce((sum, _slide, index) => sum + durationForSlide(index), 0);
+}
+
+function elapsedBeforeSlide(index){
+    return slides.slice(0, index).reduce((sum, _slide, slideIndex) => sum + durationForSlide(slideIndex), 0);
+}
 
 function showSlide(index){
     current = (index + slides.length) % slides.length;
@@ -391,14 +405,15 @@ function getElapsed(){
 }
 
 function updateProgress(){
-    const total = slideDuration * slides.length;
-    const elapsed = current * slideDuration + Math.min(getElapsed(), slideDuration);
+    const currentDuration = durationForSlide(current);
+    const total = totalDeckDuration();
+    const elapsed = elapsedBeforeSlide(current) + Math.min(getElapsed(), currentDuration);
     progressBar.style.width = `${Math.min(100, (elapsed / total) * 100)}%`;
 }
 
 function tick(){
     const elapsed = getElapsed();
-    if (elapsed >= slideDuration){
+    if (elapsed >= durationForSlide(current)){
         elapsedBeforePause = 0;
         startedAt = performance.now();
         showSlide(current + 1);
@@ -455,7 +470,8 @@ audioFile.addEventListener('change', () => {
     statusEl.textContent = file.name;
     audio.addEventListener('loadedmetadata', () => {
         if (Number.isFinite(audio.duration) && audio.duration > 20){
-            slideDuration = Math.max(3600, (audio.duration * 1000) / slides.length);
+            const weightedSlides = (fastFromIndex * 1) + ((slides.length - fastFromIndex) * fastSlideFactor);
+            baseSlideDuration = Math.max(3600, (audio.duration * 1000) / weightedSlides);
         }
         resetSlideClock();
     }, { once:true });
@@ -463,7 +479,8 @@ audioFile.addEventListener('change', () => {
 
 audio.addEventListener('loadedmetadata', () => {
     if (Number.isFinite(audio.duration) && audio.duration > 20){
-        slideDuration = Math.max(3600, (audio.duration * 1000) / slides.length);
+        const weightedSlides = (fastFromIndex * 1) + ((slides.length - fastFromIndex) * fastSlideFactor);
+        baseSlideDuration = Math.max(3600, (audio.duration * 1000) / weightedSlides);
     }
     resetSlideClock();
 });
