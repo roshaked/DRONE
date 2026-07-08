@@ -233,12 +233,12 @@ body{
 }
 
 .scene-image{
+    position:relative;
+    overflow:hidden;
     width:320px;
     height:180px;
     border-radius:18px;
-    background:
-        linear-gradient(135deg,rgba(0,245,212,.18),rgba(255,183,3,.2)),
-        linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.05));
+    background:#08111f;
     border:1px solid rgba(255,255,255,.25);
     display:flex;
     align-items:center;
@@ -249,6 +249,36 @@ body{
     padding:20px;
     font-size:1.16rem;
     box-shadow:inset 0 0 50px rgba(255,255,255,.04);
+}
+
+.scene-image img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .35s ease;
+}
+
+.scene:hover .scene-image img{
+    transform:scale(1.05);
+}
+
+.scene-image span{
+    position:absolute;
+    left:12px;
+    right:12px;
+    bottom:12px;
+    z-index:1;
+    padding:9px 12px;
+    border-radius:12px;
+    background:rgba(2,6,23,.68);
+    border:1px solid rgba(255,255,255,.22);
+    color:#fff;
+    font-size:.95rem;
+    line-height:1.35;
+    text-shadow:0 2px 10px rgba(0,0,0,.45);
+    backdrop-filter:blur(10px);
 }
 
 .scene-content{
@@ -382,7 +412,7 @@ footer{
 <!-- 1 -->
 <div class="scene">
 <div class="scene-number">01</div>
-<div class="scene-image">🚗 אדם יוצא מהבית ונכנס לרכב</div>
+<div class="scene-image"><img src="assets/scene-01.svg" alt="🚗 אדם יוצא מהבית ונכנס לרכב"><span>🚗 אדם יוצא מהבית ונכנס לרכב</span></div>
 <div class="scene-content">
 <div class="badge">פתיחה</div>
 <div class="song">שוב בבוקר יוצא לדרך</div>
@@ -395,7 +425,7 @@ footer{
 <!-- 2 -->
 <div class="scene">
 <div class="scene-number">02</div>
-<div class="scene-image">⏰ לחץ זמן ותנועה בכביש</div>
+<div class="scene-image"><img src="assets/scene-02.svg" alt="⏰ לחץ זמן ותנועה בכביש"><span>⏰ לחץ זמן ותנועה בכביש</span></div>
 <div class="scene-content">
 <div class="badge">לחץ זמן</div>
 <div class="song">השעון רץ, הזמן בורח</div>
@@ -408,7 +438,7 @@ footer{
 <!-- 3 -->
 <div class="scene">
 <div class="scene-number">03</div>
-<div class="scene-image">🚆 רכבת ופגישה מתחילה</div>
+<div class="scene-image"><img src="assets/scene-03.svg" alt="🚆 רכבת ופגישה מתחילה"><span>🚆 רכבת ופגישה מתחילה</span></div>
 <div class="scene-content">
 <div class="badge">יעד חשוב</div>
 <div class="song">הרכבת מחכה, הפגישה מתחילה</div>
@@ -421,7 +451,7 @@ footer{
 <!-- 4 -->
 <div class="scene">
 <div class="scene-number">04</div>
-<div class="scene-image">🔍 מחפש חניה</div>
+<div class="scene-image"><img src="assets/scene-04.svg" alt="🔍 מחפש חניה"><span>🔍 מחפש חניה</span></div>
 <div class="scene-content">
 <div class="badge">הבעיה</div>
 <div class="song">אבל אני שוב מחפש חניה</div>
@@ -434,7 +464,7 @@ footer{
 <!-- 5 -->
 <div class="scene">
 <div class="scene-number">05</div>
-<div class="scene-image">🅿️ חניון מלא</div>
+<div class="scene-image"><img src="assets/scene-05.svg" alt="🅿️ חניון מלא"><span>🅿️ חניון מלא</span></div>
 <div class="scene-content">
 <div class="badge">חניון עמוס</div>
 <div class="song">נכנס לחניון, מסתובב בין שורות</div>
@@ -447,7 +477,7 @@ footer{
 <!-- 6 -->
 <div class="scene">
 <div class="scene-number">06</div>
-<div class="scene-image">😣 תסכול</div>
+<div class="scene-image"><img src="assets/scene-06.svg" alt="😣 תסכול"><span>😣 תסכול</span></div>
 <div class="scene-content">
 <div class="badge">תסכול</div>
 <div class="song">מחפש מקום בין כל המכוניות</div>
@@ -460,7 +490,7 @@ footer{
 <!-- 7 -->
 <div class="scene">
 <div class="scene-number">07</div>
-<div class="scene-image">💭 הייתי רוצה לדעת מראש</div>
+<div class="scene-image"><img src="assets/scene-07.svg" alt="💭 הייתי רוצה לדעת מראש"><span>💭 הייתי רוצה לדעת מראש</span></div>
 <div class="scene-content">
 <div class="badge">צורך</div>
 <div class="song">אם רק הייתי יודע לפני ההגעה</div>
@@ -473,7 +503,7 @@ footer{
 <!-- 8 -->
 <div class="scene">
 <div class="scene-number">08</div>
-<div class="scene-image">✅ מקום פנוי</div>
+<div class="scene-image"><img src="assets/scene-08.svg" alt="✅ מקום פנוי"><span>✅ מקום פנוי</span></div>
 <div class="scene-content">
 <div class="badge">פתרון חסר</div>
 <div class="song">איפה מחכה לי חניה פנויה</div>
@@ -486,7 +516,7 @@ footer{
 <!-- 9 -->
 <div class="scene">
 <div class="scene-number">09</div>
-<div class="scene-image">❓ יש פתרון?</div>
+<div class="scene-image"><img src="assets/scene-09.svg" alt="❓ יש פתרון?"><span>❓ יש פתרון?</span></div>
 <div class="scene-content">
 <div class="badge">מעבר דרמטי</div>
 <div class="song">רגע... יש פתרון לזה?</div>
@@ -499,7 +529,7 @@ footer{
 <!-- 10 -->
 <div class="scene">
 <div class="scene-number">10</div>
-<div class="scene-image">📱 מערכת חכמה</div>
+<div class="scene-image"><img src="assets/scene-10.svg" alt="📱 מערכת חכמה"><span>📱 מערכת חכמה</span></div>
 <div class="scene-content">
 <div class="badge">חשיפת הפתרון</div>
 <div class="song">אה! יש מערכת בדיוק לזה!</div>
@@ -512,7 +542,7 @@ footer{
 <!-- 11 -->
 <div class="scene">
 <div class="scene-number">11</div>
-<div class="scene-image">🚁 רחפן מעל חניון</div>
+<div class="scene-image"><img src="assets/scene-11.svg" alt="🚁 רחפן מעל חניון"><span>🚁 רחפן מעל חניון</span></div>
 <div class="scene-content">
 <div class="badge">הרחפן</div>
 <div class="song">רחפן שמסתכל מלמעלה ורואה</div>
@@ -525,7 +555,7 @@ footer{
 <!-- 12 -->
 <div class="scene">
 <div class="scene-number">12</div>
-<div class="scene-image">🤖 AI מזהה חניות</div>
+<div class="scene-image"><img src="assets/scene-12.svg" alt="🤖 AI מזהה חניות"><span>🤖 AI מזהה חניות</span></div>
 <div class="scene-content">
 <div class="badge">AI</div>
 <div class="song">מנתח בזמן אמת את כל התמונה</div>
@@ -538,7 +568,7 @@ footer{
 <!-- 13 -->
 <div class="scene">
 <div class="scene-number">13</div>
-<div class="scene-image">🧭 ניווט לחניה</div>
+<div class="scene-image"><img src="assets/scene-13.svg" alt="🧭 ניווט לחניה"><span>🧭 ניווט לחניה</span></div>
 <div class="scene-content">
 <div class="badge">תוצאה</div>
 <div class="song">ומראה לך מראש איפה יש חניה</div>
@@ -551,7 +581,7 @@ footer{
 <!-- 14 -->
 <div class="scene">
 <div class="scene-number">14</div>
-<div class="scene-image">😊 פחות איחורים</div>
+<div class="scene-image"><img src="assets/scene-14.svg" alt="😊 פחות איחורים"><span>😊 פחות איחורים</span></div>
 <div class="scene-content">
 <div class="badge">תועלת</div>
 <div class="song">פחות חיפושים, פחות איחורים</div>
@@ -564,7 +594,7 @@ footer{
 <!-- 15 -->
 <div class="scene">
 <div class="scene-number">15</div>
-<div class="scene-image">🎯 מגיע בזמן</div>
+<div class="scene-image"><img src="assets/scene-15.svg" alt="🎯 מגיע בזמן"><span>🎯 מגיע בזמן</span></div>
 <div class="scene-content">
 <div class="badge">סיום רגשי</div>
 <div class="song">יותר זמן להגיע למקומות החשובים</div>
