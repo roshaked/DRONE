@@ -174,10 +174,9 @@ p{
 
 .brand-footer{
     position:absolute;
-    right:50%;
+    right:clamp(24px,5vw,72px);
     bottom:96px;
     z-index:6;
-    transform:translateX(50%);
     padding:12px 18px;
     border:1px solid rgba(255,255,255,.22);
     border-radius:16px;
@@ -312,8 +311,9 @@ button:hover,
 
     .brand-footer{
         bottom:154px;
+        right:16px;
         max-width:calc(100vw - 32px);
-        text-align:center;
+        text-align:right;
     }
 }
 </style>
