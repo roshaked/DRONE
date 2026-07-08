@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Parking AI - Presentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+    --cyan:#00f5d4;
+    --blue:#2563eb;
+    --pink:#ff006e;
+    --amber:#ffb703;
+    --dark:#06101f;
+    --text:#f8fbff;
+    --muted:#b7c6dc;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    overflow:hidden;
+    font-family:'Heebo',system-ui,sans-serif;
+    background:#020617;
+    color:var(--text);
+}
+
+.deck{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    background:
+        radial-gradient(circle at 15% 15%,rgba(255,0,110,.28),transparent 34%),
+        radial-gradient(circle at 82% 8%,rgba(0,245,212,.2),transparent 32%),
+        linear-gradient(135deg,#020617,#101833 58%,#230b35);
+    isolation:isolate;
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    display:grid;
+    grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);
+    gap:clamp(24px,4vw,64px);
+    align-items:center;
+    padding:clamp(24px,5vw,72px);
+    opacity:0;
+    visibility:hidden;
+    transform:translateX(-42px) scale(.985);
+    transition:opacity .65s ease, transform .65s ease, visibility .65s ease;
+}
+
+.slide.is-active{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(0) scale(1);
+    z-index:2;
+}
+
+.visual{
+    position:relative;
+    min-height:52vh;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:0 34px 90px rgba(0,0,0,.45);
+    background:#0f172a;
+}
+
+.visual img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scale(1.04);
+}
+
+.visual::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(90deg,rgba(2,6,23,.08),transparent 45%),
+        linear-gradient(0deg,rgba(2,6,23,.45),transparent 45%);
+}
+
+.copy{
+    position:relative;
+    z-index:1;
+}
+
+.scene-number{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:76px;
+    height:76px;
+    border-radius:22px;
+    background:linear-gradient(135deg,var(--cyan),#38bdf8);
+    color:#04111d;
+    font-size:1.35rem;
+    font-weight:900;
+    box-shadow:0 18px 48px rgba(0,245,212,.25);
+}
+
+.badge{
+    display:inline-flex;
+    margin-inline-start:12px;
+    padding:8px 15px;
+    border:1px solid rgba(255,183,3,.45);
+    border-radius:12px;
+    background:rgba(255,183,3,.14);
+    color:#ffe08a;
+    font-weight:800;
+}
+
+h1{
+    margin:28px 0 18px;
+    font-size:clamp(2.4rem,5vw,5.1rem);
+    line-height:1.05;
+    letter-spacing:0;
+}
+
+p{
+    margin:0;
+    max-width:760px;
+    color:var(--muted);
+    font-size:clamp(1.15rem,2vw,1.6rem);
+    line-height:1.75;
+    font-weight:500;
+}
+
+.caption{
+    position:absolute;
+    right:clamp(24px,5vw,72px);
+    left:clamp(24px,5vw,72px);
+    bottom:104px;
+    z-index:4;
+    display:flex;
+    justify-content:space-between;
+    gap:18px;
+    align-items:center;
+    pointer-events:none;
+}
+
+.caption-title{
+    padding:12px 18px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:16px;
+    background:rgba(2,6,23,.62);
+    backdrop-filter:blur(14px);
+    font-size:1rem;
+    font-weight:800;
+}
+
+.progress{
+    flex:1;
+    height:8px;
+    max-width:360px;
+    overflow:hidden;
+    border-radius:999px;
+    background:rgba(255,255,255,.16);
+}
+
+.progress span{
+    display:block;
+    width:0;
+    height:100%;
+    border-radius:999px;
+    background:linear-gradient(90deg,var(--cyan),var(--amber),var(--pink));
+    transition:width .2s linear;
+}
+
+.controls{
+    position:absolute;
+    right:50%;
+    bottom:28px;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:20px;
+    background:rgba(2,6,23,.7);
+    box-shadow:0 22px 60px rgba(0,0,0,.38);
+    backdrop-filter:blur(18px);
+    transform:translateX(50%);
+}
+
+button,
+.file-btn{
+    min-width:46px;
+    height:46px;
+    border:0;
+    border-radius:14px;
+    background:rgba(255,255,255,.1);
+    color:#fff;
+    font-family:inherit;
+    font-weight:900;
+    cursor:pointer;
+}
+
+button:hover,
+.file-btn:hover{
+    background:rgba(255,255,255,.18);
+}
+
+.play{
+    min-width:112px;
+    background:linear-gradient(135deg,var(--cyan),#38bdf8);
+    color:#04111d;
+}
+
+.file-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 14px;
+    min-width:132px;
+}
+
+.file-btn input{
+    display:none;
+}
+
+.status{
+    min-width:134px;
+    color:var(--muted);
+    font-size:.92rem;
+    text-align:center;
+}
+
+.audio{
+    display:none;
+}
+
+@media(max-width:900px){
+    .slide{
+        grid-template-columns:1fr;
+        align-content:center;
+        gap:24px;
+        padding:24px;
+    }
+
+    .visual{
+        min-height:36vh;
+        order:-1;
+    }
+
+    h1{
+        font-size:2.4rem;
+    }
+
+    p{
+        font-size:1.08rem;
+    }
+
+    .caption{
+        bottom:112px;
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .progress{
+        max-width:none;
+    }
+
+    .controls{
+        right:12px;
+        left:12px;
+        justify-content:center;
+        transform:none;
+        flex-wrap:wrap;
+    }
+}
+</style>
+</head>
+<body>
+<main class="deck" aria-live="polite">
+    <section class="slide is-active" data-scene="01">
+        <div class="copy"><span class="scene-number">01</span><span class="badge">פתיחה</span><h1>שוב בבוקר יוצא לדרך</h1><p>אדם יוצא מהבית בשעות הבוקר, נכנס לרכב ומתחיל את יום העבודה שלו.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-01.jpg" alt="אדם יוצא מהבית ונכנס לרכב"></div>
+    </section>
+    <section class="slide" data-scene="02">
+        <div class="copy"><span class="scene-number">02</span><span class="badge">לחץ זמן</span><h1>השעון רץ, הזמן בורח</h1><p>קלוז אפ לשעון, מבט מודאג של הנהג ופקקים בדרך.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-02.jpg" alt="לחץ זמן ותנועה בכביש"></div>
+    </section>
+    <section class="slide" data-scene="03">
+        <div class="copy"><span class="scene-number">03</span><span class="badge">יעד חשוב</span><h1>הרכבת מחכה, הפגישה מתחילה</h1><p>היעד כבר פעיל והנהג עדיין בחוץ.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-03.jpg" alt="רכבת ופגישה מתחילה"></div>
+    </section>
+    <section class="slide" data-scene="04">
+        <div class="copy"><span class="scene-number">04</span><span class="badge">הבעיה</span><h1>אבל אני שוב מחפש חניה</h1><p>הרכב מסתובב בקרבת היעד.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-04.jpg" alt="מחפש חניה"></div>
+    </section>
+    <section class="slide" data-scene="05">
+        <div class="copy"><span class="scene-number">05</span><span class="badge">חניון עמוס</span><h1>נכנס לחניון, מסתובב בין שורות</h1><p>שורות חניה עמוסות ללא מקום פנוי.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-05.jpg" alt="חניון מלא"></div>
+    </section>
+    <section class="slide" data-scene="06">
+        <div class="copy"><span class="scene-number">06</span><span class="badge">תסכול</span><h1>מחפש מקום בין כל המכוניות</h1><p>כל המקומות תפוסים והנהג חסר סבלנות.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-06.jpg" alt="תסכול"></div>
+    </section>
+    <section class="slide" data-scene="07">
+        <div class="copy"><span class="scene-number">07</span><span class="badge">צורך</span><h1>אם רק הייתי יודע לפני ההגעה</h1><p>מחשבה על פתרון שמציג חניה פנויה מראש.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-07.jpg" alt="הייתי רוצה לדעת מראש"></div>
+    </section>
+    <section class="slide" data-scene="08">
+        <div class="copy"><span class="scene-number">08</span><span class="badge">פתרון חסר</span><h1>איפה מחכה לי חניה פנויה</h1><p>מקום חניה פנוי בודד מסתתר בקצה החניון.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-08.jpg" alt="מקום פנוי"></div>
+    </section>
+    <section class="slide" data-scene="09">
+        <div class="copy"><span class="scene-number">09</span><span class="badge">מעבר דרמטי</span><h1>רגע... יש פתרון לזה?</h1><p>עצירה דרמטית ושאלה גדולה במרכז המסך.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-09.jpg" alt="יש פתרון"></div>
+    </section>
+    <section class="slide" data-scene="10">
+        <div class="copy"><span class="scene-number">10</span><span class="badge">חשיפת הפתרון</span><h1>אה! יש מערכת בדיוק לזה!</h1><p>חשיפה חגיגית של המערכת והאפליקציה.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-10.jpg" alt="מערכת חכמה"></div>
+    </section>
+    <section class="slide" data-scene="11">
+        <div class="copy"><span class="scene-number">11</span><span class="badge">הרחפן</span><h1>רחפן שמסתכל מלמעלה ורואה</h1><p>צילום אווירי של כל החניון.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-11.jpg" alt="רחפן מעל חניון"></div>
+    </section>
+    <section class="slide" data-scene="12">
+        <div class="copy"><span class="scene-number">12</span><span class="badge">AI</span><h1>מנתח בזמן אמת את כל התמונה</h1><p>זיהוי רכבים, מקומות פנויים וניתוח בזמן אמת.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-12.jpg" alt="AI מזהה חניות"></div>
+    </section>
+    <section class="slide" data-scene="13">
+        <div class="copy"><span class="scene-number">13</span><span class="badge">תוצאה</span><h1>ומראה לך מראש איפה יש חניה</h1><p>המערכת מובילה את הנהג ישירות למקום הפנוי.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-13.jpg" alt="ניווט לחניה"></div>
+    </section>
+    <section class="slide" data-scene="14">
+        <div class="copy"><span class="scene-number">14</span><span class="badge">תועלת</span><h1>פחות חיפושים, פחות איחורים</h1><p>הנהג מחנה במהירות וללא לחץ.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-14.jpg" alt="פחות איחורים"></div>
+    </section>
+    <section class="slide" data-scene="15">
+        <div class="copy"><span class="scene-number">15</span><span class="badge">סיום רגשי</span><h1>יותר זמן להגיע למקומות החשובים</h1><p>הנהג מגיע בזמן לפגישה או למשפחה עם תחושת הקלה.</p></div>
+        <div class="visual"><img src="assets/realistic/scene-15.jpg" alt="מגיע בזמן"></div>
+    </section>
+
+    <div class="caption">
+        <div class="caption-title">Smart Parking AI</div>
+        <div class="progress"><span id="progressBar"></span></div>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn" type="button" aria-label="הקודם">‹</button>
+        <button id="playBtn" class="play" type="button">הפעל</button>
+        <button id="nextBtn" type="button" aria-label="הבא">›</button>
+        <label class="file-btn">בחר שיר<input id="audioFile" type="file" accept="audio/*"></label>
+        <button id="muteBtn" type="button">שקט</button>
+        <div id="status" class="status">ללא שיר</div>
+    </div>
+    <audio id="bgAudio" class="audio" preload="auto"></audio>
+</main>
+
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+const progressBar = document.getElementById('progressBar');
+const playBtn = document.getElementById('playBtn');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const muteBtn = document.getElementById('muteBtn');
+const audioFile = document.getElementById('audioFile');
+const audio = document.getElementById('bgAudio');
+const statusEl = document.getElementById('status');
+
+let current = 0;
+let playing = false;
+let startedAt = 0;
+let elapsedBeforePause = 0;
+let timer = null;
+let slideDuration = 6500;
+
+function showSlide(index){
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
+    updateProgress();
+}
+
+function getElapsed(){
+    return playing ? elapsedBeforePause + (performance.now() - startedAt) : elapsedBeforePause;
+}
+
+function updateProgress(){
+    const total = slideDuration * slides.length;
+    const elapsed = current * slideDuration + Math.min(getElapsed(), slideDuration);
+    progressBar.style.width = `${Math.min(100, (elapsed / total) * 100)}%`;
+}
+
+function tick(){
+    const elapsed = getElapsed();
+    if (elapsed >= slideDuration){
+        elapsedBeforePause = 0;
+        startedAt = performance.now();
+        showSlide(current + 1);
+        if (current === 0 && audio.src){
+            audio.currentTime = 0;
+        }
+    } else {
+        updateProgress();
+    }
+}
+
+function play(){
+    if (playing) return;
+    playing = true;
+    startedAt = performance.now();
+    playBtn.textContent = 'השהה';
+    timer = setInterval(tick, 120);
+    if (audio.src) audio.play().catch(() => {});
+}
+
+function pause(){
+    if (!playing) return;
+    playing = false;
+    elapsedBeforePause = getElapsed();
+    playBtn.textContent = 'הפעל';
+    clearInterval(timer);
+    audio.pause();
+}
+
+function resetSlideClock(){
+    elapsedBeforePause = 0;
+    startedAt = performance.now();
+    updateProgress();
+}
+
+playBtn.addEventListener('click', () => playing ? pause() : play());
+prevBtn.addEventListener('click', () => {
+    showSlide(current - 1);
+    resetSlideClock();
+});
+nextBtn.addEventListener('click', () => {
+    showSlide(current + 1);
+    resetSlideClock();
+});
+muteBtn.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    muteBtn.textContent = audio.muted ? 'בטל שקט' : 'שקט';
+});
+
+audioFile.addEventListener('change', () => {
+    const file = audioFile.files[0];
+    if (!file) return;
+    audio.src = URL.createObjectURL(file);
+    statusEl.textContent = file.name;
+    audio.addEventListener('loadedmetadata', () => {
+        if (Number.isFinite(audio.duration) && audio.duration > 20){
+            slideDuration = Math.max(3600, (audio.duration * 1000) / slides.length);
+        }
+        resetSlideClock();
+    }, { once:true });
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === ' '){
+        event.preventDefault();
+        playing ? pause() : play();
+    }
+    if (event.key === 'ArrowRight') nextBtn.click();
+    if (event.key === 'ArrowLeft') prevBtn.click();
+    if (event.key.toLowerCase() === 'f') document.documentElement.requestFullscreen?.();
+});
+
+showSlide(0);
+</script>
+</body>
+</html>
