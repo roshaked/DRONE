@@ -1,0 +1,585 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Parking AI - Storyboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#2563eb;
+    --secondary:#00f5d4;
+    --accent:#ffb703;
+    --hot:#ff006e;
+    --dark:#08111f;
+    --ink:#eaf2ff;
+    --muted:#9fb3d1;
+    --panel:rgba(255,255,255,.09);
+    --line:rgba(255,255,255,.18);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Heebo',sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:
+        radial-gradient(circle at 18% 8%,rgba(255,0,110,.34),transparent 32%),
+        radial-gradient(circle at 82% 4%,rgba(0,245,212,.28),transparent 30%),
+        linear-gradient(135deg,#07111f 0%,#121736 44%,#26124c 100%);
+    color:var(--ink);
+}
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    min-height:64vh;
+    background:
+        linear-gradient(135deg,rgba(37,99,235,.94),rgba(255,0,110,.72)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='520' viewBox='0 0 900 520'%3E%3Cg fill='none' stroke='rgba(255,255,255,.28)' stroke-width='2'%3E%3Cpath d='M95 394 268 190l130 78 155-143 254 218'/%3E%3Cpath d='M128 118h110v70H128zM632 92h126v82H632zM382 355h142v86H382z'/%3E%3Ccircle cx='268' cy='190' r='12' fill='rgba(0,245,212,.55)'/%3E%3Ccircle cx='553' cy='125' r='12' fill='rgba(255,183,3,.7)'/%3E%3Ccircle cx='807' cy='343' r='12' fill='rgba(255,255,255,.72)'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:96px 20px 82px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    isolation:isolate;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:auto 0 0 0;
+    height:34%;
+    background:linear-gradient(0deg,var(--dark),transparent);
+    z-index:-1;
+}
+
+.hero h1{
+    font-size:clamp(2.35rem,6vw,5.35rem);
+    line-height:1;
+    margin-bottom:18px;
+    text-shadow:0 14px 34px rgba(0,0,0,.35);
+}
+
+.hero p{
+    max-width:900px;
+    margin:auto;
+    font-size:clamp(1.1rem,2.4vw,1.55rem);
+    font-weight:500;
+    opacity:0.95;
+}
+
+.hero-tags{
+    margin:28px auto 0;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.hero-tags span{
+    padding:9px 14px;
+    border:1px solid rgba(255,255,255,.38);
+    border-radius:12px;
+    background:rgba(8,17,31,.38);
+    color:#ffffff;
+    font-size:.95rem;
+    font-weight:700;
+    backdrop-filter:blur(12px);
+}
+
+.actions{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.btn{
+    padding:15px 28px;
+    background:white;
+    color:#111827;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:14px;
+    font-weight:700;
+    cursor:pointer;
+    text-decoration:none;
+    transition:.25s ease;
+    box-shadow:0 16px 34px rgba(0,0,0,.22);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 22px 45px rgba(0,0,0,.3);
+}
+
+.btn-green{
+    background:linear-gradient(135deg,var(--secondary),#38bdf8);
+    color:#06111f;
+}
+
+.container{
+    max-width:1300px;
+    margin:auto;
+    padding:64px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:46px;
+}
+
+.section-title h2{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    font-size:clamp(1.7rem,3vw,2.55rem);
+    color:white;
+}
+
+.section-title h2::before,
+.section-title h2::after{
+    content:"";
+    width:52px;
+    height:4px;
+    border-radius:999px;
+    background:linear-gradient(90deg,var(--secondary),var(--accent),var(--hot));
+}
+
+.timeline{
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    right:30px;
+    top:0;
+    bottom:0;
+    width:5px;
+    border-radius:999px;
+    background:linear-gradient(180deg,var(--secondary),var(--accent),var(--hot));
+    box-shadow:0 0 28px rgba(0,245,212,.45);
+}
+
+.scene{
+    position:relative;
+    display:flex;
+    gap:25px;
+    align-items:stretch;
+    background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.06));
+    margin-bottom:30px;
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:22px;
+    box-shadow:0 24px 60px rgba(0,0,0,.26);
+    backdrop-filter:blur(18px);
+    overflow:hidden;
+    transition:.25s ease;
+}
+
+.scene::before{
+    content:"";
+    position:absolute;
+    inset:0 auto 0 0;
+    width:8px;
+    background:linear-gradient(180deg,var(--secondary),var(--accent));
+}
+
+.scene:nth-child(3n)::before{
+    background:linear-gradient(180deg,var(--hot),#8b5cf6);
+}
+
+.scene:nth-child(3n+2)::before{
+    background:linear-gradient(180deg,var(--accent),#fb7185);
+}
+
+.scene:hover{
+    transform:translateY(-4px);
+    border-color:rgba(255,255,255,.35);
+}
+
+.scene-number{
+    width:60px;
+    height:60px;
+    min-width:60px;
+    border-radius:18px;
+    background:linear-gradient(135deg,var(--secondary),var(--primary));
+    color:#06111f;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    font-weight:800;
+    z-index:2;
+    box-shadow:0 14px 30px rgba(0,245,212,.25);
+}
+
+.scene-image{
+    width:320px;
+    height:180px;
+    border-radius:18px;
+    background:
+        linear-gradient(135deg,rgba(0,245,212,.18),rgba(255,183,3,.2)),
+        linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.05));
+    border:1px solid rgba(255,255,255,.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-weight:700;
+    color:white;
+    padding:20px;
+    font-size:1.16rem;
+    box-shadow:inset 0 0 50px rgba(255,255,255,.04);
+}
+
+.scene-content{
+    flex:1;
+    align-self:center;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,183,3,.17);
+    color:#ffe08a;
+    border:1px solid rgba(255,183,3,.42);
+    padding:7px 15px;
+    border-radius:10px;
+    margin-bottom:12px;
+    font-size:.85rem;
+    font-weight:700;
+}
+
+.song{
+    font-size:clamp(1.25rem,2vw,1.75rem);
+    font-weight:800;
+    margin-bottom:12px;
+    color:#ffffff;
+}
+
+.description{
+    line-height:1.8;
+    color:var(--muted);
+    font-size:1.03rem;
+}
+
+.prompt{
+    margin-top:15px;
+    padding:12px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    font-size:.9rem;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:var(--muted);
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+@media(max-width:900px){
+
+    .hero h1{
+        font-size:2rem;
+    }
+
+    .scene{
+        flex-direction:column;
+    }
+
+    .timeline::before{
+        right:28px;
+    }
+
+    .scene-image{
+        width:100%;
+    }
+}
+
+@media print{
+    .actions{
+        display:none;
+    }
+
+    body{
+        background:white;
+        color:#0f172a;
+    }
+
+    .scene,
+    .scene-image{
+        background:white;
+        color:#0f172a;
+        border:1px solid #cbd5e1;
+        box-shadow:none;
+    }
+
+    .song,
+    .section-title h2{
+        color:#0f172a;
+    }
+
+    .description,
+    footer{
+        color:#475569;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<h1>🚁 Smart Parking AI</h1>
+
+<p>
+פתרון חכם למציאת חניה באמצעות רחפן, ניתוח תמונה בזמן אמת ובינה מלאכותית
+</p>
+
+<div class="hero-tags">
+<span>🚁 צילום אווירי</span>
+<span>🤖 AI בזמן אמת</span>
+<span>🧭 ניווט לחניה פנויה</span>
+</div>
+
+<div class="actions">
+<button class="btn" onclick="window.print()">📄 שמירה כ-PDF</button>
+<a href="#storyboard" class="btn btn-green">🎬 צפייה בסטוריבורד</a>
+</div>
+
+</section>
+
+<div class="container" id="storyboard">
+
+<div class="section-title">
+<h2>Storyboard & Shooting List</h2>
+</div>
+
+<div class="timeline">
+
+<!-- 1 -->
+<div class="scene">
+<div class="scene-number">01</div>
+<div class="scene-image">🚗 אדם יוצא מהבית ונכנס לרכב</div>
+<div class="scene-content">
+<div class="badge">פתיחה</div>
+<div class="song">שוב בבוקר יוצא לדרך</div>
+<div class="description">
+אדם יוצא מהבית בשעות הבוקר, נכנס לרכב ומתחיל את יום העבודה שלו.
+</div>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="scene">
+<div class="scene-number">02</div>
+<div class="scene-image">⏰ לחץ זמן ותנועה בכביש</div>
+<div class="scene-content">
+<div class="badge">לחץ זמן</div>
+<div class="song">השעון רץ, הזמן בורח</div>
+<div class="description">
+קלוז אפ לשעון, מבט מודאג של הנהג ופקקים בדרך.
+</div>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="scene">
+<div class="scene-number">03</div>
+<div class="scene-image">🚆 רכבת ופגישה מתחילה</div>
+<div class="scene-content">
+<div class="badge">יעד חשוב</div>
+<div class="song">הרכבת מחכה, הפגישה מתחילה</div>
+<div class="description">
+היעד כבר פעיל והנהג עדיין בחוץ.
+</div>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="scene">
+<div class="scene-number">04</div>
+<div class="scene-image">🔍 מחפש חניה</div>
+<div class="scene-content">
+<div class="badge">הבעיה</div>
+<div class="song">אבל אני שוב מחפש חניה</div>
+<div class="description">
+הרכב מסתובב בקרבת היעד.
+</div>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="scene">
+<div class="scene-number">05</div>
+<div class="scene-image">🅿️ חניון מלא</div>
+<div class="scene-content">
+<div class="badge">חניון עמוס</div>
+<div class="song">נכנס לחניון, מסתובב בין שורות</div>
+<div class="description">
+שורות חניה עמוסות ללא מקום פנוי.
+</div>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="scene">
+<div class="scene-number">06</div>
+<div class="scene-image">😣 תסכול</div>
+<div class="scene-content">
+<div class="badge">תסכול</div>
+<div class="song">מחפש מקום בין כל המכוניות</div>
+<div class="description">
+כל המקומות תפוסים והנהג חסר סבלנות.
+</div>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="scene">
+<div class="scene-number">07</div>
+<div class="scene-image">💭 הייתי רוצה לדעת מראש</div>
+<div class="scene-content">
+<div class="badge">צורך</div>
+<div class="song">אם רק הייתי יודע לפני ההגעה</div>
+<div class="description">
+מחשבה על פתרון שמציג חניה פנויה מראש.
+</div>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="scene">
+<div class="scene-number">08</div>
+<div class="scene-image">✅ מקום פנוי</div>
+<div class="scene-content">
+<div class="badge">פתרון חסר</div>
+<div class="song">איפה מחכה לי חניה פנויה</div>
+<div class="description">
+מקום חניה פנוי בודד מסתתר בקצה החניון.
+</div>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="scene">
+<div class="scene-number">09</div>
+<div class="scene-image">❓ יש פתרון?</div>
+<div class="scene-content">
+<div class="badge">מעבר דרמטי</div>
+<div class="song">רגע... יש פתרון לזה?</div>
+<div class="description">
+עצירה דרמטית ושאלה גדולה במרכז המסך.
+</div>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="scene">
+<div class="scene-number">10</div>
+<div class="scene-image">📱 מערכת חכמה</div>
+<div class="scene-content">
+<div class="badge">חשיפת הפתרון</div>
+<div class="song">אה! יש מערכת בדיוק לזה!</div>
+<div class="description">
+חשיפה חגיגית של המערכת והאפליקציה.
+</div>
+</div>
+</div>
+
+<!-- 11 -->
+<div class="scene">
+<div class="scene-number">11</div>
+<div class="scene-image">🚁 רחפן מעל חניון</div>
+<div class="scene-content">
+<div class="badge">הרחפן</div>
+<div class="song">רחפן שמסתכל מלמעלה ורואה</div>
+<div class="description">
+צילום אווירי של כל החניון.
+</div>
+</div>
+</div>
+
+<!-- 12 -->
+<div class="scene">
+<div class="scene-number">12</div>
+<div class="scene-image">🤖 AI מזהה חניות</div>
+<div class="scene-content">
+<div class="badge">AI</div>
+<div class="song">מנתח בזמן אמת את כל התמונה</div>
+<div class="description">
+זיהוי רכבים, מקומות פנויים וניתוח בזמן אמת.
+</div>
+</div>
+</div>
+
+<!-- 13 -->
+<div class="scene">
+<div class="scene-number">13</div>
+<div class="scene-image">🧭 ניווט לחניה</div>
+<div class="scene-content">
+<div class="badge">תוצאה</div>
+<div class="song">ומראה לך מראש איפה יש חניה</div>
+<div class="description">
+המערכת מובילה את הנהג ישירות למקום הפנוי.
+</div>
+</div>
+</div>
+
+<!-- 14 -->
+<div class="scene">
+<div class="scene-number">14</div>
+<div class="scene-image">😊 פחות איחורים</div>
+<div class="scene-content">
+<div class="badge">תועלת</div>
+<div class="song">פחות חיפושים, פחות איחורים</div>
+<div class="description">
+הנהג מחנה במהירות וללא לחץ.
+</div>
+</div>
+</div>
+
+<!-- 15 -->
+<div class="scene">
+<div class="scene-number">15</div>
+<div class="scene-image">🎯 מגיע בזמן</div>
+<div class="scene-content">
+<div class="badge">סיום רגשי</div>
+<div class="song">יותר זמן להגיע למקומות החשובים</div>
+<div class="description">
+הנהג מגיע בזמן לפגישה או למשפחה עם תחושת הקלה.
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<footer>
+Smart Parking AI · Client Presentation Storyboard
+</footer>
+
+</body>
+</html>
