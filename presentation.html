@@ -357,9 +357,9 @@ button:hover,
         <button id="nextBtn" type="button" aria-label="הבא">›</button>
         <label class="file-btn">בחר שיר<input id="audioFile" type="file" accept="audio/*"></label>
         <button id="muteBtn" type="button">שקט</button>
-        <div id="status" class="status">ללא שיר</div>
+        <div id="status" class="status">שיר רקע מחובר</div>
     </div>
-    <audio id="bgAudio" class="audio" preload="auto"></audio>
+    <audio id="bgAudio" class="audio" preload="auto" src="assets/audio/background-song.mpeg"></audio>
 </main>
 
 <script>
@@ -459,6 +459,13 @@ audioFile.addEventListener('change', () => {
         }
         resetSlideClock();
     }, { once:true });
+});
+
+audio.addEventListener('loadedmetadata', () => {
+    if (Number.isFinite(audio.duration) && audio.duration > 20){
+        slideDuration = Math.max(3600, (audio.duration * 1000) / slides.length);
+    }
+    resetSlideClock();
 });
 
 document.addEventListener('keydown', (event) => {
