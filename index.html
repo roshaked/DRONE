@@ -251,7 +251,8 @@ body{
     box-shadow:inset 0 0 50px rgba(255,255,255,.04);
 }
 
-.scene-image img{
+.scene-image img,
+.scene-image svg{
     position:absolute;
     inset:0;
     width:100%;
@@ -260,7 +261,8 @@ body{
     transition:transform .35s ease;
 }
 
-.scene:hover .scene-image img{
+.scene:hover .scene-image img,
+.scene:hover .scene-image svg{
     transform:scale(1.05);
 }
 
@@ -412,7 +414,45 @@ footer{
 <!-- 1 -->
 <div class="scene">
 <div class="scene-number">01</div>
-<div class="scene-image"><img src="assets/scene-01.svg" alt="🚗 אדם יוצא מהבית ונכנס לרכב"><span>🚗 אדם יוצא מהבית ונכנס לרכב</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="car leaving home">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#00f5d4"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="112" y="190" width="205" height="165" rx="18" fill="#fff" opacity=".92"/>
+    <path d="M92 202l122-98 123 98z" fill="#ffb703"/>
+    <rect x="178" y="268" width="70" height="87" rx="10" fill="#2563eb"/>
+    <g transform="translate(570 330) scale(0.82)">
+      <path d="M-150 34h300c18 0 32 14 32 32v26h-364V66c0-18 14-32 32-32z" fill="#f8fafc" opacity=".96"/>
+      <path d="M-98 34l44-62h110l58 62z" fill="#f8fafc" opacity=".92"/>
+      <path d="M-46-18h82l34 52H-82z" fill="#0f172a" opacity=".32"/>
+      <circle cx="-92" cy="96" r="34" fill="#111827"/><circle cx="92" cy="96" r="34" fill="#111827"/>
+      <circle cx="-92" cy="96" r="14" fill="#94a3b8"/><circle cx="92" cy="96" r="14" fill="#94a3b8"/>
+    </g>
+    <path d="M390 398h380" stroke="#fff" stroke-width="18" stroke-linecap="round" opacity=".65"/>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">01</text>
+</svg>
+<span>🚗 אדם יוצא מהבית ונכנס לרכב</span></div>
 <div class="scene-content">
 <div class="badge">פתיחה</div>
 <div class="song">שוב בבוקר יוצא לדרך</div>
@@ -425,7 +465,58 @@ footer{
 <!-- 2 -->
 <div class="scene">
 <div class="scene-number">02</div>
-<div class="scene-image"><img src="assets/scene-02.svg" alt="⏰ לחץ זמן ותנועה בכביש"><span>⏰ לחץ זמן ותנועה בכביש</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="time pressure and traffic">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#ffb703"/>
+      <stop offset="1" stop-color="#ff006e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <circle cx="238" cy="220" r="100" fill="#fff" opacity=".94"/>
+    <path d="M238 150v74l54 38" stroke="#111827" stroke-width="17" stroke-linecap="round" fill="none"/>
+    <path d="M115 388h725" stroke="#fff" stroke-width="16" stroke-linecap="round" opacity=".55"/>
+    <g transform="translate(455 330) scale(0.58)">
+      <path d="M-150 34h300c18 0 32 14 32 32v26h-364V66c0-18 14-32 32-32z" fill="#f8fafc" opacity=".96"/>
+      <path d="M-98 34l44-62h110l58 62z" fill="#f8fafc" opacity=".92"/>
+      <path d="M-46-18h82l34 52H-82z" fill="#0f172a" opacity=".32"/>
+      <circle cx="-92" cy="96" r="34" fill="#111827"/><circle cx="92" cy="96" r="34" fill="#111827"/>
+      <circle cx="-92" cy="96" r="14" fill="#94a3b8"/><circle cx="92" cy="96" r="14" fill="#94a3b8"/>
+    </g>
+    <g transform="translate(625 350) scale(0.48)">
+      <path d="M-150 34h300c18 0 32 14 32 32v26h-364V66c0-18 14-32 32-32z" fill="#fffbeb" opacity=".96"/>
+      <path d="M-98 34l44-62h110l58 62z" fill="#fffbeb" opacity=".92"/>
+      <path d="M-46-18h82l34 52H-82z" fill="#0f172a" opacity=".32"/>
+      <circle cx="-92" cy="96" r="34" fill="#111827"/><circle cx="92" cy="96" r="34" fill="#111827"/>
+      <circle cx="-92" cy="96" r="14" fill="#94a3b8"/><circle cx="92" cy="96" r="14" fill="#94a3b8"/>
+    </g>
+    <g transform="translate(740 310) scale(0.42)">
+      <path d="M-150 34h300c18 0 32 14 32 32v26h-364V66c0-18 14-32 32-32z" fill="#e0f2fe" opacity=".96"/>
+      <path d="M-98 34l44-62h110l58 62z" fill="#e0f2fe" opacity=".92"/>
+      <path d="M-46-18h82l34 52H-82z" fill="#0f172a" opacity=".32"/>
+      <circle cx="-92" cy="96" r="34" fill="#111827"/><circle cx="92" cy="96" r="34" fill="#111827"/>
+      <circle cx="-92" cy="96" r="14" fill="#94a3b8"/><circle cx="92" cy="96" r="14" fill="#94a3b8"/>
+    </g>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">02</text>
+</svg>
+<span>⏰ לחץ זמן ותנועה בכביש</span></div>
 <div class="scene-content">
 <div class="badge">לחץ זמן</div>
 <div class="song">השעון רץ, הזמן בורח</div>
@@ -438,7 +529,42 @@ footer{
 <!-- 3 -->
 <div class="scene">
 <div class="scene-number">03</div>
-<div class="scene-image"><img src="assets/scene-03.svg" alt="🚆 רכבת ופגישה מתחילה"><span>🚆 רכבת ופגישה מתחילה</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="train station and meeting">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="95" y="245" width="430" height="132" rx="32" fill="#fff" opacity=".92"/>
+    <rect x="145" y="280" width="72" height="44" rx="10" fill="#2563eb" opacity=".75"/>
+    <rect x="245" y="280" width="72" height="44" rx="10" fill="#2563eb" opacity=".75"/>
+    <rect x="345" y="280" width="72" height="44" rx="10" fill="#2563eb" opacity=".75"/>
+    <circle cx="185" cy="385" r="26" fill="#111827"/><circle cx="432" cy="385" r="26" fill="#111827"/>
+    <rect x="620" y="136" width="190" height="220" rx="20" fill="#fff" opacity=".9"/>
+    <circle cx="670" cy="208" r="28" fill="#ffb703"/><circle cx="760" cy="208" r="28" fill="#00f5d4"/>
+    <path d="M650 278h140M650 318h92" stroke="#111827" stroke-width="16" stroke-linecap="round" opacity=".5"/>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">03</text>
+</svg>
+<span>🚆 רכבת ופגישה מתחילה</span></div>
 <div class="scene-content">
 <div class="badge">יעד חשוב</div>
 <div class="song">הרכבת מחכה, הפגישה מתחילה</div>
@@ -451,7 +577,67 @@ footer{
 <!-- 4 -->
 <div class="scene">
 <div class="scene-number">04</div>
-<div class="scene-image"><img src="assets/scene-04.svg" alt="🔍 מחפש חניה"><span>🔍 מחפש חניה</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="searching for parking">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#fb7185"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="195" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="195" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="195" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <circle cx="708" cy="185" r="82" fill="none" stroke="#fff" stroke-width="24"/>
+    <path d="M765 242l88 88" stroke="#fff" stroke-width="28" stroke-linecap="round"/>
+    <path d="M142 422c112-68 242-68 350 0" stroke="#fff" stroke-width="14" stroke-linecap="round" opacity=".55"/>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">04</text>
+</svg>
+<span>🔍 מחפש חניה</span></div>
 <div class="scene-content">
 <div class="badge">הבעיה</div>
 <div class="song">אבל אני שוב מחפש חניה</div>
@@ -464,7 +650,66 @@ footer{
 <!-- 5 -->
 <div class="scene">
 <div class="scene-number">05</div>
-<div class="scene-image"><img src="assets/scene-05.svg" alt="🅿️ חניון מלא"><span>🅿️ חניון מלא</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="full parking lot">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="195" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="195" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="195" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="354" y="58" width="252" height="78" rx="22" fill="#ef4444" opacity=".95"/>
+    <text x="480" y="111" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="900" fill="#fff">FULL</text>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">05</text>
+</svg>
+<span>🅿️ חניון מלא</span></div>
 <div class="scene-content">
 <div class="badge">חניון עמוס</div>
 <div class="song">נכנס לחניון, מסתובב בין שורות</div>
@@ -477,7 +722,46 @@ footer{
 <!-- 6 -->
 <div class="scene">
 <div class="scene-number">06</div>
-<div class="scene-image"><img src="assets/scene-06.svg" alt="😣 תסכול"><span>😣 תסכול</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="frustrated driver">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#ff006e"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <circle cx="300" cy="245" r="112" fill="#fff" opacity=".92"/>
+    <circle cx="258" cy="222" r="12" fill="#111827"/><circle cx="342" cy="222" r="12" fill="#111827"/>
+    <path d="M258 295c35-28 75-28 110 0" stroke="#111827" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <path d="M195 156l-34-42M400 156l40-42" stroke="#ffb703" stroke-width="18" stroke-linecap="round"/>
+    <g transform="translate(620 340) scale(0.63)">
+      <path d="M-150 34h300c18 0 32 14 32 32v26h-364V66c0-18 14-32 32-32z" fill="#f8fafc" opacity=".96"/>
+      <path d="M-98 34l44-62h110l58 62z" fill="#f8fafc" opacity=".92"/>
+      <path d="M-46-18h82l34 52H-82z" fill="#0f172a" opacity=".32"/>
+      <circle cx="-92" cy="96" r="34" fill="#111827"/><circle cx="92" cy="96" r="34" fill="#111827"/>
+      <circle cx="-92" cy="96" r="14" fill="#94a3b8"/><circle cx="92" cy="96" r="14" fill="#94a3b8"/>
+    </g>
+    <path d="M530 165h260" stroke="#fff" stroke-width="18" stroke-linecap="round" opacity=".7"/>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">06</text>
+</svg>
+<span>😣 תסכול</span></div>
 <div class="scene-content">
 <div class="badge">תסכול</div>
 <div class="song">מחפש מקום בין כל המכוניות</div>
@@ -490,7 +774,38 @@ footer{
 <!-- 7 -->
 <div class="scene">
 <div class="scene-number">07</div>
-<div class="scene-image"><img src="assets/scene-07.svg" alt="💭 הייתי רוצה לדעת מראש"><span>💭 הייתי רוצה לדעת מראש</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="wish to know in advance">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M190 145h420c48 0 88 39 88 88v50c0 48-40 88-88 88H389l-104 82 30-82H190c-48 0-88-40-88-88v-50c0-49 40-88 88-88z" fill="#fff" opacity=".9"/>
+    <path d="M240 258h312M240 312h218" stroke="#111827" stroke-width="20" stroke-linecap="round" opacity=".4"/>
+    <circle cx="735" cy="210" r="55" fill="#00f5d4"/>
+    <path d="M708 211l22 22 45-56" stroke="#07111f" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">07</text>
+</svg>
+<span>💭 הייתי רוצה לדעת מראש</span></div>
 <div class="scene-content">
 <div class="badge">צורך</div>
 <div class="song">אם רק הייתי יודע לפני ההגעה</div>
@@ -503,7 +818,67 @@ footer{
 <!-- 8 -->
 <div class="scene">
 <div class="scene-number">08</div>
-<div class="scene-image"><img src="assets/scene-08.svg" alt="✅ מקום פנוי"><span>✅ מקום פנוי</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="one available parking spot">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#00f5d4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="195" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="195" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="195" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="356" width="60" height="32" rx="14" fill="#22c55e" opacity=".95"/>
+    <path d="M689 373l12 12 25-28" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M675 396l32 32 70-92" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="740" cy="378" r="104" fill="#22c55e" opacity=".28"/>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">08</text>
+</svg>
+<span>✅ מקום פנוי</span></div>
 <div class="scene-content">
 <div class="badge">פתרון חסר</div>
 <div class="song">איפה מחכה לי חניה פנויה</div>
@@ -516,7 +891,37 @@ footer{
 <!-- 9 -->
 <div class="scene">
 <div class="scene-number">09</div>
-<div class="scene-image"><img src="assets/scene-09.svg" alt="❓ יש פתרון?"><span>❓ יש פתרון?</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="is there a solution">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#ffb703"/>
+      <stop offset="1" stop-color="#ff006e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <circle cx="480" cy="260" r="148" fill="#fff" opacity=".92"/>
+    <text x="480" y="322" text-anchor="middle" font-family="Arial, sans-serif" font-size="210" font-weight="900" fill="#111827">?</text>
+    <path d="M240 410h480" stroke="#fff" stroke-width="18" stroke-linecap="round" opacity=".55"/>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">09</text>
+</svg>
+<span>❓ יש פתרון?</span></div>
 <div class="scene-content">
 <div class="badge">מעבר דרמטי</div>
 <div class="song">רגע... יש פתרון לזה?</div>
@@ -529,7 +934,39 @@ footer{
 <!-- 10 -->
 <div class="scene">
 <div class="scene-number">10</div>
-<div class="scene-image"><img src="assets/scene-10.svg" alt="📱 מערכת חכמה"><span>📱 מערכת חכמה</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="smart parking app">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#00f5d4"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="354" y="86" width="252" height="368" rx="42" fill="#111827" stroke="#fff" stroke-width="15"/>
+    <rect x="386" y="140" width="188" height="250" rx="20" fill="#e0f2fe"/>
+    <path d="M415 332c55-70 113-58 150-128" stroke="#2563eb" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <circle cx="430" cy="330" r="18" fill="#ff006e"/><circle cx="565" cy="205" r="18" fill="#22c55e"/>
+    <circle cx="480" cy="418" r="13" fill="#fff"/>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">10</text>
+</svg>
+<span>📱 מערכת חכמה</span></div>
 <div class="scene-content">
 <div class="badge">חשיפת הפתרון</div>
 <div class="song">אה! יש מערכת בדיוק לזה!</div>
@@ -542,7 +979,73 @@ footer{
 <!-- 11 -->
 <div class="scene">
 <div class="scene-number">11</div>
-<div class="scene-image"><img src="assets/scene-11.svg" alt="🚁 רחפן מעל חניון"><span>🚁 רחפן מעל חניון</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="drone above parking lot">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#0f766e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="195" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="195" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="195" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="356" width="60" height="32" rx="14" fill="#22c55e" opacity=".95"/>
+    <path d="M689 373l12 12 25-28" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(480 108)">
+      <rect x="-78" y="-20" width="156" height="40" rx="20" fill="#111827"/>
+      <circle cx="-132" cy="-54" r="38" fill="none" stroke="#fff" stroke-width="12"/>
+      <circle cx="132" cy="-54" r="38" fill="none" stroke="#fff" stroke-width="12"/>
+      <circle cx="-132" cy="54" r="38" fill="none" stroke="#fff" stroke-width="12"/>
+      <circle cx="132" cy="54" r="38" fill="none" stroke="#fff" stroke-width="12"/>
+      <path d="M-78 0h-54M78 0h54M-52 0l-80-54M52 0l80-54M-52 0l-80 54M52 0l80 54" stroke="#111827" stroke-width="12" stroke-linecap="round"/>
+    </g>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">11</text>
+</svg>
+<span>🚁 רחפן מעל חניון</span></div>
 <div class="scene-content">
 <div class="badge">הרחפן</div>
 <div class="song">רחפן שמסתכל מלמעלה ורואה</div>
@@ -555,7 +1058,68 @@ footer{
 <!-- 12 -->
 <div class="scene">
 <div class="scene-number">12</div>
-<div class="scene-image"><img src="assets/scene-12.svg" alt="🤖 AI מזהה חניות"><span>🤖 AI מזהה חניות</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="AI detects spaces">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#00f5d4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="195" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="160" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="172" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="195" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="252" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="264" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="195" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="209" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="310" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="324" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="425" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="439" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="540" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="554" y="356" width="60" height="32" rx="14" fill="#fff" opacity=".9"/>
+    <rect x="655" y="344" width="88" height="56" rx="8" fill="#ffffff" opacity=".18" stroke="#fff" stroke-width="3"/>
+    <rect x="669" y="356" width="60" height="32" rx="14" fill="#22c55e" opacity=".95"/>
+    <path d="M689 373l12 12 25-28" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="155" y="122" width="650" height="292" rx="32" fill="none" stroke="#00f5d4" stroke-width="9" stroke-dasharray="24 18"/>
+    <circle cx="480" cy="268" r="96" fill="#111827" opacity=".82"/>
+    <text x="480" y="292" text-anchor="middle" font-family="Arial, sans-serif" font-size="70" font-weight="900" fill="#00f5d4">AI</text>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">12</text>
+</svg>
+<span>🤖 AI מזהה חניות</span></div>
 <div class="scene-content">
 <div class="badge">AI</div>
 <div class="song">מנתח בזמן אמת את כל התמונה</div>
@@ -568,7 +1132,40 @@ footer{
 <!-- 13 -->
 <div class="scene">
 <div class="scene-number">13</div>
-<div class="scene-image"><img src="assets/scene-13.svg" alt="🧭 ניווט לחניה"><span>🧭 ניווט לחניה</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="navigation to parking">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M155 376c98-140 194-38 294-142 94-98 190-58 340-142" stroke="#fff" stroke-width="26" stroke-linecap="round" fill="none"/>
+    <path d="M748 80l100 8-43 94z" fill="#22c55e"/>
+    <circle cx="160" cy="376" r="30" fill="#ff006e"/>
+    <circle cx="480" cy="238" r="24" fill="#ffb703"/>
+    <rect x="300" y="330" width="104" height="64" rx="10" fill="#fff" opacity=".22"/>
+    <rect x="565" y="160" width="104" height="64" rx="10" fill="#fff" opacity=".22"/>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">13</text>
+</svg>
+<span>🧭 ניווט לחניה</span></div>
 <div class="scene-content">
 <div class="badge">תוצאה</div>
 <div class="song">ומראה לך מראש איפה יש חניה</div>
@@ -581,7 +1178,40 @@ footer{
 <!-- 14 -->
 <div class="scene">
 <div class="scene-number">14</div>
-<div class="scene-image"><img src="assets/scene-14.svg" alt="😊 פחות איחורים"><span>😊 פחות איחורים</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="less searching less late">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#facc15"/>
+      <stop offset="1" stop-color="#fb7185"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <circle cx="308" cy="250" r="105" fill="#fff" opacity=".92"/>
+    <circle cx="270" cy="225" r="12" fill="#111827"/><circle cx="346" cy="225" r="12" fill="#111827"/>
+    <path d="M264 288c48 42 94 42 140 0" stroke="#111827" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <circle cx="650" cy="245" r="92" fill="#fff" opacity=".9"/>
+    <path d="M650 184v66l48 34" stroke="#111827" stroke-width="15" stroke-linecap="round" fill="none"/>
+    <path d="M155 416h650" stroke="#22c55e" stroke-width="20" stroke-linecap="round" opacity=".7"/>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">14</text>
+</svg>
+<span>😊 פחות איחורים</span></div>
 <div class="scene-content">
 <div class="badge">תועלת</div>
 <div class="song">פחות חיפושים, פחות איחורים</div>
@@ -594,7 +1224,39 @@ footer{
 <!-- 15 -->
 <div class="scene">
 <div class="scene-number">15</div>
-<div class="scene-image"><img src="assets/scene-15.svg" alt="🎯 מגיע בזמן"><span>🎯 מגיע בזמן</span></div>
+<div class="scene-image"><svg class="scene-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="arriving on time">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".52" stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#ffb703"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".2" cy=".15" r=".75">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="960" height="540" rx="42" fill="url(#bg)"/>
+  <rect width="960" height="540" rx="42" fill="url(#glow)"/>
+  <path d="M0 412 C180 350 330 470 500 405 C660 345 760 290 960 335 L960 540 L0 540 Z" fill="#020617" opacity=".22"/>
+  <g opacity=".18" stroke="#fff" stroke-width="3" fill="none">
+    <path d="M80 88h150v84H80zM705 78h120v120H705zM620 405h190"/>
+    <circle cx="830" cy="126" r="36"/>
+  </g>
+  <g filter="url(#shadow)">
+    <circle cx="480" cy="260" r="150" fill="#fff" opacity=".16"/>
+    <circle cx="480" cy="260" r="105" fill="none" stroke="#fff" stroke-width="22"/>
+    <circle cx="480" cy="260" r="45" fill="#ffb703"/>
+    <path d="M480 108v-58M480 470v-58M328 260h-58M690 260h-58" stroke="#fff" stroke-width="20" stroke-linecap="round"/>
+    <path d="M405 264l48 48 108-138" stroke="#fff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <circle cx="78" cy="78" r="42" fill="#fff" opacity=".18"/>
+  <text x="78" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#fff">15</text>
+</svg>
+<span>🎯 מגיע בזמן</span></div>
 <div class="scene-content">
 <div class="badge">סיום רגשי</div>
 <div class="song">יותר זמן להגיע למקומות החשובים</div>
@@ -613,3 +1275,4 @@ Smart Parking AI · Client Presentation Storyboard
 
 </body>
 </html>
+
